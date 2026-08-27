@@ -1,0 +1,1064 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Muhammad Rizal - Portofolio Profesional</title>
+    
+    <!-- Fonts & Icons -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..700;1,400..700&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- AOS Animation Library CSS -->
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+
+    <style>
+        :root {
+            --bg-cream: #F5EFDF;
+            --bg-card: #EBE3D0;
+            --bg-card-light: #FAF6ED;
+            --text-dark: #1E1E1E;
+            --text-muted: #666055;
+            --accent-brown: #9E6B4B;
+            --bg-dark: #1A1A1A;
+            --card-dark: #242424;
+            --border-dark: #333333;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            background-color: var(--bg-cream);
+            color: var(--text-dark);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* Header / Navbar */
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            padding: 20px 8%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: rgba(245, 239, 223, 0.95);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            border-bottom: 1px solid rgba(0,0,0,0.05);
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            font-family: 'Playfair Display', serif;
+            color: var(--text-dark);
+            text-decoration: none;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 30px;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: var(--text-muted);
+            font-size: 0.9rem;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        nav a:hover, nav a.active {
+            color: var(--text-dark);
+        }
+
+        .header-actions {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .lang-btn {
+            background: transparent;
+            border: 1px solid #D0C8B6;
+            padding: 6px 14px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .lang-btn:hover {
+            background-color: rgba(0,0,0,0.05);
+        }
+
+        .btn-dark {
+            background-color: var(--text-dark);
+            color: #fff;
+            padding: 10px 22px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-size: 0.85rem;
+            font-weight: 500;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            transition: transform 0.3s, background-color 0.3s;
+        }
+
+        .btn-dark:hover {
+            transform: translateY(-2px);
+            background-color: #333;
+        }
+
+        .hamburger-btn {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 1.4rem;
+            cursor: pointer;
+            color: var(--text-dark);
+        }
+
+        /* Mobile Overlay Menu */
+        .mobile-menu {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100vh;
+            background-color: var(--bg-cream);
+            z-index: 2000;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            gap: 25px;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.4s ease;
+        }
+
+        .mobile-menu.active {
+            opacity: 1;
+            pointer-events: all;
+        }
+
+        .mobile-menu a {
+            font-size: 1.5rem;
+            text-decoration: none;
+            color: var(--text-dark);
+            font-family: 'Playfair Display', serif;
+        }
+
+        .close-menu-btn {
+            position: absolute;
+            top: 25px;
+            right: 8%;
+            background: none;
+            border: none;
+            font-size: 1.8rem;
+            cursor: pointer;
+        }
+
+        /* Layout Container */
+        .container {
+            padding: 120px 8% 60px;
+            max-width: 1300px;
+            margin: 0 auto;
+        }
+
+        .section-label {
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: var(--text-muted);
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .section-label::before {
+            content: '';
+            width: 25px;
+            height: 1px;
+            background-color: var(--text-muted);
+        }
+
+        .section-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.8rem;
+            line-height: 1.2;
+            font-weight: 400;
+            margin-bottom: 40px;
+        }
+
+        .section-title span {
+            color: var(--accent-brown);
+            font-style: italic;
+        }
+
+        /* Hero Section */
+        .hero {
+            display: grid;
+            grid-template-columns: 1.2fr 0.8fr;
+            gap: 50px;
+            align-items: center;
+            min-height: 80vh;
+            margin-bottom: 80px;
+        }
+
+        .badge-group {
+            display: flex;
+            gap: 12px;
+            margin-bottom: 25px;
+            flex-wrap: wrap;
+        }
+
+        .badge {
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: var(--text-muted);
+            border: 1px solid #D8D0BE;
+            padding: 5px 14px;
+            border-radius: 20px;
+        }
+
+        .hero-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 4rem;
+            line-height: 1.1;
+            font-weight: 400;
+            margin-bottom: 25px;
+        }
+
+        .hero-title span {
+            color: var(--accent-brown);
+            font-style: italic;
+        }
+
+        .hero-subtitle {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: var(--text-muted);
+            margin-bottom: 20px;
+        }
+
+        .hero-desc {
+            color: var(--text-muted);
+            margin-bottom: 35px;
+            font-size: 0.95rem;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 15px;
+        }
+
+        .btn-outline {
+            border: 1px solid #C4BCAB;
+            padding: 10px 22px;
+            border-radius: 30px;
+            text-decoration: none;
+            color: var(--text-dark);
+            font-size: 0.85rem;
+            font-weight: 500;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            transition: background 0.3s;
+        }
+
+        .btn-outline:hover {
+            background-color: rgba(0,0,0,0.05);
+        }
+
+        /* Profile Card */
+        .profile-card {
+            background-color: var(--bg-card);
+            border-radius: 20px;
+            padding: 25px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.03);
+            transition: transform 0.4s ease;
+        }
+
+        .profile-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .card-header {
+            display: flex;
+            justify-content: space-between;
+            font-size: 0.75rem;
+            color: var(--text-muted);
+            margin-bottom: 15px;
+            letter-spacing: 1px;
+        }
+
+        .profile-img-container {
+            width: 100%;
+            height: 380px;
+            border-radius: 12px;
+            overflow: hidden;
+            margin-bottom: 20px;
+        }
+
+        .profile-img-container img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            filter: grayscale(100%);
+            transition: filter 0.5s ease, transform 0.5s ease;
+        }
+
+        .profile-card:hover .profile-img-container img {
+            filter: grayscale(0%);
+            transform: scale(1.03);
+        }
+
+        .profile-info h3 {
+            font-size: 1.4rem;
+            font-weight: 600;
+        }
+
+        .profile-info p.role {
+            color: var(--accent-brown);
+            font-size: 0.9rem;
+            margin-bottom: 15px;
+        }
+
+        .meta-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            margin-bottom: 8px;
+        }
+
+        /* Highlights / Pencapaian Grid */
+        .highlights-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+            margin-bottom: 100px;
+        }
+
+        .highlight-card {
+            background-color: var(--bg-card-light);
+            border: 1px solid #E5DDCB;
+            padding: 30px;
+            border-radius: 12px;
+            transition: all 0.3s ease;
+        }
+
+        .highlight-card:hover {
+            border-color: var(--accent-brown);
+            transform: translateY(-4px);
+        }
+
+        .highlight-number {
+            font-size: 0.8rem;
+            color: var(--accent-brown);
+            margin-bottom: 15px;
+            font-weight: 600;
+        }
+
+        .highlight-card h3 {
+            font-size: 1.3rem;
+            font-weight: 600;
+            margin-bottom: 10px;
+        }
+
+        .highlight-card p {
+            font-size: 0.88rem;
+            color: var(--text-muted);
+        }
+
+        /* Timeline Section */
+        .timeline {
+            position: relative;
+            max-width: 900px;
+            margin: 40px auto 100px;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 50%;
+            top: 0;
+            bottom: 0;
+            width: 1px;
+            background-color: #D8D0BE;
+            transform: translateX(-50%);
+        }
+
+        .timeline-item {
+            margin-bottom: 50px;
+            position: relative;
+            width: 50%;
+        }
+
+        .timeline-item.left {
+            left: 0;
+            padding-right: 40px;
+            text-align: right;
+        }
+
+        .timeline-item.right {
+            left: 50%;
+            padding-left: 40px;
+            text-align: left;
+        }
+
+        .timeline-dot {
+            position: absolute;
+            top: 5px;
+            width: 10px;
+            height: 10px;
+            background-color: var(--accent-brown);
+            border-radius: 50%;
+        }
+
+        .timeline-item.left .timeline-dot { right: -5px; }
+        .timeline-item.right .timeline-dot { left: -5px; }
+
+        .timeline-date {
+            font-size: 0.8rem;
+            color: var(--accent-brown);
+            font-weight: 600;
+            margin-bottom: 5px;
+        }
+
+        .timeline-title {
+            font-size: 1.2rem;
+            margin-bottom: 8px;
+        }
+
+        .timeline-desc {
+            font-size: 0.88rem;
+            color: var(--text-muted);
+        }
+
+        /* Experience Detailed Cards */
+        .exp-card {
+            background-color: var(--bg-card-light);
+            border: 1px solid #E5DDCB;
+            border-radius: 16px;
+            padding: 35px;
+            margin-bottom: 25px;
+            transition: border-color 0.3s;
+        }
+
+        .exp-card:hover {
+            border-color: var(--accent-brown);
+        }
+
+        .exp-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 5px;
+        }
+
+        .exp-company {
+            font-size: 1.5rem;
+            font-family: 'Playfair Display', serif;
+        }
+
+        .exp-role {
+            color: var(--text-muted);
+            font-size: 0.9rem;
+            margin-bottom: 25px;
+        }
+
+        .exp-details {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+            margin-bottom: 30px;
+        }
+
+        .exp-details h4 {
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: var(--accent-brown);
+            margin-bottom: 12px;
+        }
+
+        .exp-details ul {
+            list-style: none;
+        }
+
+        .exp-details li {
+            font-size: 0.88rem;
+            color: var(--text-muted);
+            margin-bottom: 8px;
+            position: relative;
+            padding-left: 15px;
+        }
+
+        .exp-details li::before {
+            content: '•';
+            color: var(--accent-brown);
+            position: absolute;
+            left: 0;
+        }
+
+        .exp-stats {
+            display: flex;
+            gap: 30px;
+            padding-top: 20px;
+            border-top: 1px solid #E0D8C6;
+            flex-wrap: wrap;
+        }
+
+        .stat-item span {
+            display: block;
+            font-size: 1.1rem;
+            font-weight: 600;
+        }
+
+        .stat-item label {
+            font-size: 0.7rem;
+            text-transform: uppercase;
+            color: var(--text-muted);
+        }
+
+        /* Grid Section (Skills / Principles) */
+        .grid-3 {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+            margin-bottom: 80px;
+        }
+
+        .grid-2 {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+            margin-bottom: 80px;
+        }
+
+        .info-card {
+            background-color: var(--bg-card-light);
+            border: 1px solid #E5DDCB;
+            padding: 30px;
+            border-radius: 12px;
+        }
+
+        .info-card h4 {
+            font-size: 1.1rem;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .pills {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+
+        .pill {
+            background-color: rgba(0,0,0,0.04);
+            border: 1px solid #DEC8B0;
+            padding: 4px 12px;
+            border-radius: 15px;
+            font-size: 0.78rem;
+            color: var(--text-dark);
+        }
+
+        /* Dark Footer Contact */
+        .contact-section {
+            background-color: var(--bg-dark);
+            color: #fff;
+            padding: 100px 8% 40px;
+            margin-top: 80px;
+        }
+
+        .contact-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+            margin: 40px 0;
+        }
+
+        .contact-card {
+            background-color: var(--card-dark);
+            border: 1px solid var(--border-dark);
+            padding: 25px;
+            border-radius: 12px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            text-decoration: none;
+            color: #fff;
+            transition: all 0.3s;
+        }
+
+        .contact-card:hover {
+            border-color: #666;
+            transform: translateY(-3px);
+        }
+
+        .contact-card label {
+            display: block;
+            font-size: 0.7rem;
+            color: #777;
+            margin-bottom: 5px;
+        }
+
+        .footer-bottom {
+            display: flex;
+            justify-content: space-between;
+            padding-top: 40px;
+            border-top: 1px solid var(--border-dark);
+            font-size: 0.8rem;
+            color: #666;
+        }
+
+        /* Responsive Breakpoints */
+        @media (max-width: 992px) {
+            .hero, .exp-details, .grid-3, .grid-2, .highlights-grid, .contact-grid {
+                grid-template-columns: 1fr;
+            }
+            .hero-title { font-size: 3rem; }
+            nav { display: none; }
+            .hamburger-btn { display: block; }
+            .timeline::before { left: 0; }
+            .timeline-item { width: 100%; padding-left: 30px !important; text-align: left !important; }
+            .timeline-item.right { left: 0; }
+            .timeline-dot { left: -5px !important; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Mobile Navigation Overlay -->
+    <div class="mobile-menu" id="mobileMenu">
+        <button class="close-menu-btn" id="closeMenu">&times;</button>
+        <a href="#tentang" class="menu-link">Tentang</a>
+        <a href="#pengalaman" class="menu-link">Pengalaman</a>
+        <a href="#keahlian" class="menu-link">Keahlian</a>
+        <a href="#prestasi" class="menu-link">Prestasi</a>
+        <a href="#kontak" class="menu-link">Kontak</a>
+    </div>
+
+    <!-- Header / Navbar -->
+    <header>
+        <a href="#" class="logo">Rizal.</a>
+        <nav>
+            <ul>
+                <li><a href="#tentang">Tentang</a></li>
+                <li><a href="#pengalaman">Pengalaman</a></li>
+                <li><a href="#keahlian">Keahlian</a></li>
+                <li><a href="#prestasi">Prestasi</a></li>
+                <li><a href="#kontak">Kontak</a></li>
+            </ul>
+        </nav>
+        <div class="header-actions">
+            <button class="lang-btn"><i class="fa-solid fa-globe"></i> EN</button>
+            <a href="#kontak" class="btn-dark"><i class="fa-solid fa-download"></i> Unduh CV</a>
+            <button class="hamburger-btn" id="openMenu"><i class="fa-solid fa-bars"></i></button>
+        </div>
+    </header>
+
+    <div class="container">
+        
+        <!-- Hero Section -->
+        <section class="hero">
+            <div class="hero-content" data-aos="fade-right" data-aos-duration="1000">
+                <div class="badge-group">
+                    <span class="badge">• TERBUKA UNTUK KESEMPATAN</span>
+                    <span class="badge">PORTOFOLIO PROFESIONAL • 2026</span>
+                </div>
+                <h1 class="hero-title">Muhammad<br><span>Rizal.</span></h1>
+                <div class="hero-subtitle">Warehouse / Operations / Leadership</div>
+                <p class="hero-desc">
+                    Profesional dengan pengalaman di bidang maintenance, merchandising, warehouse, raw material, administrasi operasional, dan koordinasi tim.
+                    <br><br>
+                    Terbiasa bekerja berdasarkan SOP, menjaga ketepatan material, melakukan monitoring operasional, serta mengambil tanggung jawab dalam memastikan pekerjaan tim berjalan secara efektif dan terstruktur.
+                </p>
+                <div class="hero-buttons">
+                    <a href="#pengalaman" class="btn-dark">Lihat Pengalaman Saya <i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+                    <a href="#kontak" class="btn-outline"><i class="fa-solid fa-download"></i> Unduh CV</a>
+                </div>
+            </div>
+
+            <div class="profile-card" data-aos="fade-left" data-aos-duration="1000">
+                <div class="card-header">
+                    <span>PROFIL</span>
+                    <span>01 / 01</span>
+                </div>
+                <div class="profile-img-container">
+                    <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=600&auto=format&fit=crop" alt="Muhammad Rizal">
+                </div>
+                <div class="profile-info">
+                    <h3>Muhammad Rizal</h3>
+                    <p class="role">Warehouse & Operations</p>
+                    <div class="meta-item"><i class="fa-solid fa-location-dot"></i> Berdomisili di Cileungsi, Bogor</div>
+                    <div class="meta-item"><i class="fa-solid fa-briefcase"></i> Pengalaman 2018 — 2026</div>
+                    <div class="meta-item" style="margin-top: 15px; font-size: 0.75rem;"><i class="fa-regular fa-clock"></i> Terbuka untuk Kesempatan • Terakhir diperbarui: Agustus 2026</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Momen Penting / Highlights Section -->
+        <section data-aos="fade-up" data-aos-duration="1000">
+            <div class="section-label">PENCAPAIAN KARIER</div>
+            <h2 class="section-title">Momen penting sepanjang <span>perjalanan profesional saya.</span></h2>
+            
+            <div class="highlights-grid">
+                <div class="highlight-card" data-aos="fade-up" data-aos-delay="100">
+                    <div class="highlight-number">01</div>
+                    <h3>Operator → Leader</h3>
+                    <p>Berkembang dari posisi operasional hingga dipercaya menjalankan tanggung jawab sebagai Acting Leader.</p>
+                </div>
+                <div class="highlight-card" data-aos="fade-up" data-aos-delay="200">
+                    <div class="highlight-number">02</div>
+                    <h3>Koordinasi Tim</h3>
+                    <p>Mengkoordinasikan 5 anggota tim dan memastikan pekerjaan berjalan sesuai SOP.</p>
+                </div>
+                <div class="highlight-card" data-aos="fade-up" data-aos-delay="300">
+                    <div class="highlight-number">03</div>
+                    <h3>Best Picker</h3>
+                    <p>Mendapatkan pencapaian Best Picker pada bulan September saat bekerja di warehouse.</p>
+                </div>
+                <div class="highlight-card" data-aos="fade-up" data-aos-delay="400">
+                    <div class="highlight-number">04</div>
+                    <h3>Perbaikan Proses</h3>
+                    <p>Membantu meningkatkan keteraturan stock opname dan persiapan raw material.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- About & Timeline -->
+        <section id="tentang" data-aos="fade-up" data-aos-duration="1000">
+            <div class="section-label">TENTANG SAYA</div>
+            <h2 class="section-title">Perjalanan yang dibangun melalui <span>pengalaman, disiplin, dan kemauan untuk terus berkembang.</span></h2>
+            
+            <div class="timeline" id="pengalaman">
+                <div class="timeline-item left" data-aos="fade-right">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-date">2018</div>
+                    <h4 class="timeline-title">Memulai Perjalanan Profesional</h4>
+                    <p class="timeline-desc">Memulai karier melalui bidang Maintenance dan membangun dasar pengalaman kerja secara profesional.</p>
+                </div>
+                <div class="timeline-item right" data-aos="fade-left">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-date">2021</div>
+                    <h4 class="timeline-title">Berkembang di Berbagai Bidang</h4>
+                    <p class="timeline-desc">Memperluas pengalaman melalui bidang merchandising dan warehouse operation, sekaligus meningkatkan kemampuan bekerja secara terstruktur.</p>
+                </div>
+                <div class="timeline-item left" data-aos="fade-right">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-date">2024</div>
+                    <h4 class="timeline-title">Raw Material & Operations</h4>
+                    <p class="timeline-desc">Berkembang dalam pengelolaan raw material, administrasi operasional, supply material, stock monitoring, dan kesiapan bahan baku.</p>
+                </div>
+                <div class="timeline-item right" data-aos="fade-left">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-date">2025</div>
+                    <h4 class="timeline-title">Acting Leader</h4>
+                    <p class="timeline-desc">Dipercaya mengkoordinasikan 5 anggota tim, memberikan training, memastikan pekerjaan sesuai SOP, serta mengambil tanggung jawab ketika atasan sedang cuti.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Detailed Experience Section -->
+        <section data-aos="fade-up" data-aos-duration="1000">
+            <div class="section-label">PENGALAMAN KERJA</div>
+            <h2 class="section-title">Pengalaman dan tanggung jawab.</h2>
+
+            <div class="exp-card" data-aos="fade-up">
+                <div class="exp-header">
+                    <div class="exp-company">PT. Rudy Soetadi</div>
+                    <div style="font-size: 0.8rem; color: var(--accent-brown);">2024 — 2026 • 01</div>
+                </div>
+                <div class="exp-role">Raw Material Supplier - Raw Material Operator - Acting Leader / Sub Division My Baby</div>
+                
+                <div class="exp-details">
+                    <div>
+                        <h4>Tanggung Jawab Operasional</h4>
+                        <ul>
+                            <li>Mengelola dan memastikan ketersediaan raw material untuk kebutuhan produksi.</li>
+                            <li>Memeriksa quantity, kondisi, dan kelayakan material.</li>
+                            <li>Membuat laporan harian supply dari gudang ke produksi.</li>
+                            <li>Memastikan bahan baku sesuai varian produksi dan quantity pada ticket order.</li>
+                            <li>Mengoperasikan reach truck dan stacker dalam aktivitas warehouse.</li>
+                            <li>Menangani administrasi raw material pada Sub Division My Baby.</li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h4>Kepemimpinan & Peningkatan</h4>
+                        <ul>
+                            <li>Mengkoordinasikan 5 anggota tim dan membagi pekerjaan sesuai kebutuhan.</li>
+                            <li>Memastikan tim bekerja sesuai SOP dan standar keselamatan kerja.</li>
+                            <li>Memberikan training dan arahan kepada anggota baru.</li>
+                            <li>Terlibat langsung dalam operasional raw material ketika dibutuhkan.</li>
+                            <li>Meningkatkan keteraturan proses stock opname dan persiapan bahan baku.</li>
+                            <li>Dipercaya menggantikan tanggung jawab atasan ketika sedang cuti.</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="exp-stats">
+                    <div class="stat-item"><span>5</span><label>Anggota Tim</label></div>
+                    <div class="stat-item"><span>Operator → Leader</span><label>Progress Karier</label></div>
+                    <div class="stat-item"><span>Stock Opname</span><label>Perbaikan Proses</label></div>
+                    <div class="stat-item"><span>Training</span><label>Bimbingan Anggota Baru</label></div>
+                </div>
+            </div>
+
+            <div class="exp-card" data-aos="fade-up">
+                <div class="exp-header">
+                    <div class="exp-company">PT. Marunda Distribusindo Raya</div>
+                    <div style="font-size: 0.8rem; color: var(--accent-brown);">2022 — 2024 • 02</div>
+                </div>
+                <div class="exp-role">Picker Warehouse</div>
+                <p style="font-size: 0.9rem; color: var(--text-muted); margin-bottom: 15px;">
+                    Melakukan picking berdasarkan order, memastikan jenis dan quantity barang sesuai, menjaga ketepatan proses distribusi, serta menjaga kerapian dan ketertiban area warehouse.
+                </p>
+                <div class="badge" style="display: inline-block;">🏆 Best Picker — September</div>
+            </div>
+
+            <div class="exp-card" data-aos="fade-up">
+                <div class="exp-header">
+                    <div class="exp-company">PT. Arina Multikarya</div>
+                    <div style="font-size: 0.8rem; color: var(--accent-brown);">2021 • 03</div>
+                </div>
+                <div class="exp-role">Merchandiser</div>
+                <p style="font-size: 0.9rem; color: var(--text-muted);">
+                    Menangani penataan dan display produk, monitoring ketersediaan serta kondisi produk, memastikan area penjualan sesuai standar, dan berkoordinasi dengan pihak terkait di lapangan.
+                </p>
+            </div>
+
+            <div class="exp-card" data-aos="fade-up">
+                <div class="exp-header">
+                    <div class="exp-company">PT. Mata Air Boga Lestari</div>
+                    <div style="font-size: 0.8rem; color: var(--accent-brown);">2018 — 2021 • 04</div>
+                </div>
+                <div class="exp-role">Maintenance</div>
+                <p style="font-size: 0.9rem; color: var(--text-muted); margin-bottom: 15px;">
+                    Melakukan perbaikan dan maintenance mesin cup sealing, mesin kasir, dan mesin flavour; menangani kebutuhan maintenance kantor; serta mendukung persiapan stand mall dan bazaar.
+                </p>
+                <div class="badge" style="display: inline-block;">🏅 No. 1 Maintenance Younger</div>
+            </div>
+        </section>
+
+        <!-- Skills Section -->
+        <section id="keahlian" data-aos="fade-up" data-aos-duration="1000">
+            <div class="section-label">KEAHLIAN & KOMPETENSI</div>
+            <h2 class="section-title">Kompetensi yang saya kembangkan <span>melalui pengalaman.</span></h2>
+
+            <div class="grid-3">
+                <div class="info-card">
+                    <h4><span>01</span> Warehouse & Material</h4>
+                    <div class="pills">
+                        <span class="pill">Warehouse Operation</span>
+                        <span class="pill">Raw Material</span>
+                        <span class="pill">Inventory Control</span>
+                        <span class="pill">Stock Monitoring</span>
+                        <span class="pill">Picking</span>
+                        <span class="pill">Stock Opname</span>
+                    </div>
+                </div>
+
+                <div class="info-card">
+                    <h4><span>02</span> Equipment</h4>
+                    <div class="pills">
+                        <span class="pill">Reach Truck</span>
+                        <span class="pill">Stacker</span>
+                        <span class="pill">Hand Pallet</span>
+                        <span class="pill">Pallet Mover</span>
+                    </div>
+                </div>
+
+                <div class="info-card">
+                    <h4><span>03</span> Administrasi & Sistem</h4>
+                    <div class="pills">
+                        <span class="pill">Microsoft Word</span>
+                        <span class="pill">Microsoft PowerPoint</span>
+                        <span class="pill">SAP Portal</span>
+                        <span class="pill">Daily Reporting</span>
+                        <span class="pill">Operational Administration</span>
+                    </div>
+                </div>
+
+                <div class="info-card">
+                    <h4><span>04</span> Teknis</h4>
+                    <div class="pills">
+                        <span class="pill">Maintenance</span>
+                        <span class="pill">Troubleshooting</span>
+                        <span class="pill">Equipment Maintenance</span>
+                        <span class="pill">Basic Electrical</span>
+                    </div>
+                </div>
+
+                <div class="info-card">
+                    <h4><span>05</span> Kepemimpinan</h4>
+                    <div class="pills">
+                        <span class="pill">Team Coordination</span>
+                        <span class="pill">Work Allocation</span>
+                        <span class="pill">Training</span>
+                        <span class="pill">Operational Monitoring</span>
+                        <span class="pill">Problem Solving</span>
+                    </div>
+                </div>
+
+                <div class="info-card">
+                    <h4><span>06</span> Profesional</h4>
+                    <div class="pills">
+                        <span class="pill">Communication</span>
+                        <span class="pill">Teamwork</span>
+                        <span class="pill">Discipline</span>
+                        <span class="pill">Responsibility</span>
+                        <span class="pill">Adaptability</span>
+                        <span class="pill">Attention to Detail</span>
+                        <span class="pill">Continuous Learning</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Principles Section -->
+        <section data-aos="fade-up" data-aos-duration="1000">
+            <div class="section-label">NILAI PROFESIONAL</div>
+            <h2 class="section-title">Prinsip yang saya bawa <span>dalam bekerja.</span></h2>
+
+            <div class="grid-3">
+                <div class="info-card">
+                    <h4><i class="fa-solid fa-shield-halved" style="color:var(--accent-brown);"></i> Integrity</h4>
+                    <p style="font-size: 0.88rem; color: var(--text-muted);">Menjaga kejujuran dan tanggung jawab dalam menjalankan pekerjaan.</p>
+                </div>
+                <div class="info-card">
+                    <h4><i class="fa-regular fa-clock" style="color:var(--accent-brown);"></i> Discipline</h4>
+                    <p style="font-size: 0.88rem; color: var(--text-muted);">Konsisten terhadap aturan, waktu, dan standar kerja.</p>
+                </div>
+                <div class="info-card">
+                    <h4><i class="fa-regular fa-circle-check" style="color:var(--accent-brown);"></i> Responsibility</h4>
+                    <p style="font-size: 0.88rem; color: var(--text-muted);">Menyelesaikan pekerjaan dengan kesadaran terhadap hasil dan dampaknya.</p>
+                </div>
+                <div class="info-card">
+                    <h4><i class="fa-solid fa-users" style="color:var(--accent-brown);"></i> Teamwork</h4>
+                    <p style="font-size: 0.88rem; color: var(--text-muted);">Membangun komunikasi dan kerja sama yang efektif.</p>
+                </div>
+                <div class="info-card">
+                    <h4><i class="fa-solid fa-book-open" style="color:var(--accent-brown);"></i> Continuous Learning</h4>
+                    <p style="font-size: 0.88rem; color: var(--text-muted);">Terus mengembangkan kemampuan melalui pengalaman dan pembelajaran baru.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Career Goal -->
+        <section data-aos="fade-up" data-aos-duration="1000" style="margin-bottom: 80px;">
+            <div class="section-label">TUJUAN KARIER</div>
+            <h2 class="section-title">Arah Perjalanan Saya</h2>
+            <p style="max-width: 800px; font-size: 1.05rem; color: var(--text-muted);">
+                Dalam 3–5 tahun ke depan, saya ingin membangun karier yang matang dan berkelanjutan dengan terus mengembangkan kompetensi teknis, operasional, serta kepemimpinan. Saya berharap dapat memberikan kontribusi yang konsisten, mengambil tanggung jawab yang lebih besar, dan tumbuh bersama perusahaan dalam jangka panjang.
+            </p>
+        </section>
+
+    </div>
+
+    <!-- Contact Footer (Dark) -->
+    <footer class="contact-section" id="kontak">
+        <div class="contact-container" data-aos="fade-up" data-aos-duration="1000">
+            <div class="section-label" style="color: #888;">MARI TERHUBUNG</div>
+            <h2 class="section-title" style="color:#fff;">Terbuka untuk kesempatan berikutnya.</h2>
+            <p style="color: #999; max-width: 600px; margin-bottom: 30px;">
+                Terbuka untuk bekerja dan mempertimbangkan kesempatan profesional yang sesuai dengan pengalaman serta kompetensi saya. Informasi mengenai status pekerjaan akan selalu diperbarui melalui website ini.
+            </p>
+
+            <div class="contact-grid">
+                <a href="mailto:mhdrzl1501@gmail.com" class="contact-card">
+                    <div>
+                        <label>EMAIL</label>
+                        <span>mhdrzl1501@gmail.com</span>
+                    </div>
+                    <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                </a>
+                <a href="https://wa.me/628995656157" target="_blank" class="contact-card">
+                    <div>
+                        <label>WHATSAPP</label>
+                        <span>0899 5656 157</span>
+                    </div>
+                    <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                </a>
+                <a href="#" class="contact-card">
+                    <div>
+                        <label>LINKEDIN</label>
+                        <span>Muhammad Rizal</span>
+                    </div>
+                    <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                </a>
+                <a href="#" class="contact-card">
+                    <div>
+                        <label>GITHUB</label>
+                        <span>neighborhooddev</span>
+                    </div>
+                    <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                </a>
+            </div>
+
+            <div class="footer-bottom">
+                <div>© 2026 Muhammad Rizal. Dirancang dengan integritas.</div>
+                <div>v2.0 • 2026</div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- AOS Animation Library JS -->
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <script>
+        // Inisialisasi Animasi Scroll
+        AOS.init({
+            once: true,
+            duration: 800,
+            offset: 100
+        });
+
+        // Script Mobile Menu Overlay
+        const openBtn = document.getElementById('openMenu');
+        const closeBtn = document.getElementById('closeMenu');
+        const mobileMenu = document.getElementById('mobileMenu');
+        const menuLinks = document.querySelectorAll('.menu-link');
+
+        openBtn.addEventListener('click', () => {
+            mobileMenu.classList.add('active');
+        });
+
+        closeBtn.addEventListener('click', () => {
+            mobileMenu.classList.remove('active');
+        });
+
+        menuLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.remove('active');
+            });
+        });
+    </script>
+</body>
+</html>
